@@ -102,9 +102,23 @@ class Sql_Test:
 
 
 
+    def execute_sql_query(self, query):
+        conn = self.postgres_engine.connect()
+        cursor = conn.cursor()
+        cursor.execute(query)
+        result = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        return result
 
-
-
+    def get_cohort_revenue(self):
+        query = '''
+        SELECT *
+        FROM
+        GROUP BY
+        ORDER BY
+        '''
+        return self.execute_sql_query(query)
 
 
 
